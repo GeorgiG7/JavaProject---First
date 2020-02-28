@@ -16,6 +16,7 @@ public class Main {
         int cows, bulls;
         String cowsString, bullsString;
         byte[] computerOneNumber = generateFourDigitNumberInArray();
+        String spaces = "                               ";
         if (choice == 1) {
             StringBuilder playerOneString = new StringBuilder();
             while (true) {
@@ -66,8 +67,8 @@ public class Main {
             int turn = 1;
             byte[] computerTwoNumber = generateFourDigitNumberInArray();
             byte[] turnNumber;
-            StringBuilder playerOneString = new StringBuilder("Играч 1: \n");
-            StringBuilder playerTwoString = new StringBuilder("Играч 2: \n");
+            StringBuilder playerOneString =
+                    new StringBuilder("Играч 1:" + spaces + spaces + "| Играч 2:\n");
             while (true) {
                 cows = 0;
                 bulls = 0;
@@ -109,12 +110,12 @@ public class Main {
 
                 if (turn == 1){
                     playerOneString.append("Числото " + playerNumber + " има " + cows + " " +
-                            cowsString + " и " + bulls + " " + bullsString + "\n");
+                            cowsString + " и " + bulls + " " + bullsString + spaces + "      | ");
                 } else {
-                    playerTwoString.append("Числото " + playerNumber + " има " + cows + " " +
+                    playerOneString.append("Числото " + playerNumber + " има " + cows + " " +
                             cowsString + " и " + bulls + " " + bullsString + "\n");
                 }
-                System.out.println(playerOneString.toString() + "\n\n\n\n\n" + playerTwoString.toString());
+                System.out.println(playerOneString.toString());
                 if (bulls == 4) {
                     System.out.println("Играч " + turn + " печели!!!");
                     break;
